@@ -1,0 +1,35 @@
+.breach-check {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.breach-found {
+  background-color: rgba(191, 97, 106, 0.1);
+  border: 1px solid var(--danger-color);
+}
+
+.breach-safe {
+  background-color: rgba(163, 190, 140, 0.1);
+  border: 1px solid var(--success-color);
+}
+
+.breach-icon {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.breach-found .breach-icon {
+  color: var(--danger-color);
+}
+
+.breach-safe .breach-icon {
+  color: var(--success-color);
+}
+
+.breach-message {
+  flex: 1;
+  line-height: 1.5;
+}
