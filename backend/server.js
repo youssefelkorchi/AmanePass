@@ -45,6 +45,26 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Add a route for the root path
+app.get('/', (req, res) => {
+  res.json({
+    name: 'Password Guardian API',
+    version: '1.0.0',
+    endpoints: [
+      {
+        path: '/api/check-password',
+        method: 'POST',
+        description: 'Check password strength and breach status'
+      },
+      {
+        path: '/api/suggest-passwords',
+        method: 'GET',
+        description: 'Get alternative password suggestions'
+      }
+    ]
+  });
+});
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
