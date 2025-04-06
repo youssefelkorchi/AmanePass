@@ -1,9 +1,12 @@
+// Update the import section
 import React, { useState } from 'react';
 import axios from 'axios';
-import PasswordStrengthMeter from './components/PasswordStrengthMeter';
-import PasswordSuggestions from './components/PasswordSuggestions';
-import BreachCheck from './components/BreachCheck';
 import './App.css';
+import PasswordStrengthMeter from './components/PasswordStrengthMeter';
+import BreachCheck from './components/BreachCheck';
+import PasswordSuggestions from './components/PasswordSuggestions';
+import PasswordInput from './components/PasswordInput'; // New import
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [password, setPassword] = useState('');
@@ -45,6 +48,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
+        <ThemeToggle /> {/* Add the theme toggle */}
         <h1>Password Guardian</h1>
         <p className="subtitle">Check your password strength and breach status - 100% offline and private</p>
       </header>
@@ -53,12 +57,11 @@ function App() {
         <section className="password-check-section">
           <form onSubmit={handleSubmit} className="password-form">
             <div className="input-group">
-              <input
-                type="password"
+              {/* Replace the input with our new PasswordInput component */}
+              <PasswordInput 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="password-input"
               />
               <button type="submit" className="check-button" disabled={loading}>
                 {loading ? 'Checking...' : 'Check Password'}

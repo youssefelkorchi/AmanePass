@@ -27,21 +27,41 @@ const PasswordStrengthMeter = ({ password, score }) => {
       default: return '#d8dee9'; // Gray
     }
   };
+  
+  const getStrengthDescription = (score) => {
+    switch (score) {
+      case 0: return 'This password could be cracked instantly';
+      case 1: return 'This password would be cracked very quickly';
+      case 2: return 'This password provides moderate protection';
+      case 3: return 'This password provides good protection';
+      case 4: return 'This password provides excellent protection';
+      default: return 'Enter a password to see its strength';
+    }
+  };
 
   return (
     <div className="password-strength-meter">
-      <div className="strength-label">
-        Password Strength: <span style={{ color: getStrengthColor(calculatedScore) }}>{getStrengthLabel(calculatedScore)}</span>
+      <div className="strength-header">
+        <div className="strength-label">
+          Password Strength: <span style={{ color: getStrengthColor(calculatedScore) }}>{getStrengthLabel(calculatedScore)}</span>
+        </div>
+        <div className="strength-score">{calculatedScore}/4</div>
       </div>
+      
       <div className="strength-meter">
         {[0, 1, 2, 3, 4].map((index) => (
           <div 
             key={index} 
             className={`strength-segment ${index <= calculatedScore ? 'filled' : ''}`}
-            style={{ backgroundColor: index <= calculatedScore ? getStrengthColor(calculatedScore) : undefined }}
+            style={{ 
+              backgroundColor: index <= calculatedScore ? getStrengthColor(calculatedScore) : undefined,
+              width: `${100/5}%`
+            }}
           />
         ))}
       </div>
+      
+      <p className="strength-description">{getStrengthDescription(calculatedScore)}</p>
     </div>
   );
 };
