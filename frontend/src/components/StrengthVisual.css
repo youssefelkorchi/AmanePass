@@ -1,0 +1,58 @@
+.strength-visual {
+  margin-bottom: 1.5rem;
+}
+
+.strength-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.strength-label {
+  font-weight: 500;
+}
+
+.strength-value {
+  font-weight: 600;
+}
+
+.password-strength-visual {
+  position: relative;
+  height: 8px;
+  background: #e5e9f0;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+}
+
+.strength-segment {
+  height: 100%;
+  background-color: var(--border-color);
+  transition: background-color 0.3s ease;
+  margin-right: 2px;
+}
+
+.strength-segment:last-child {
+  margin-right: 0;
+}
+
+.strength-segment.active {
+  background-color: var(--primary-color);
+}
+
+.crack-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.crack-label {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.crack-value {
+  font-weight: 500;
+}

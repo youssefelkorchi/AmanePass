@@ -128,62 +128,146 @@ body {
   color: #666;
 }
 
+/* Add these animation keyframes to your existing App.css */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Update these existing classes with animations */
 .results-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
-  animation: fadeIn 0.4s ease-out;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .result-card {
   background-color: var(--card-background);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px var(--shadow-color);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--primary-color);
 }
 
 .result-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px var(--shadow-color);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px var(--shadow-color);
 }
 
-.result-card h2 {
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-  font-size: 1.5rem;
+.strength-card {
+  border-top-color: var(--primary-color);
 }
 
-.warning {
-  color: var(--warning-color);
-  background-color: rgba(235, 203, 139, 0.1);
-  padding: 0.75rem;
-  border-radius: 4px;
-  margin: 1rem 0;
+.breach-card {
+  border-top-color: var(--success-color);
 }
 
-.suggestions h3 {
-  margin: 1rem 0 0.5rem;
-  font-size: 1.1rem;
-}
-
-.suggestions ul {
-  list-style-position: inside;
-  margin-left: 0.5rem;
+/* For breach cards that need to show danger color */
+.breach-card.breach-found {
+  border-top-color: var(--danger-color);
 }
 
 .suggestions-container {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   background-color: var(--card-background);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px var(--shadow-color);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  animation: fadeIn 0.7s ease-out;
+  border-top: 4px solid var(--accent-color);
+}
+
+.password-form {
+  animation: slideIn 0.4s ease-out;
+}
+
+.check-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.check-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.check-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--light-text);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.realtime-feedback {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.info-card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  margin-top: 3rem;
+  border-left: 4px solid var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+}
+
+.app-footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: var(--card-background);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
 }
 
 .suggestions-container h2 {
@@ -238,4 +322,377 @@ body {
   .results-container {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* Add this to your App.css */
+.check-button:not(:disabled):not(:active) {
+  animation: subtle-pulse 2s infinite;
+}
+
+@keyframes subtle-pulse {
+  0% { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 6px 12px rgba(74, 111, 165, 0.3); }
+  100% { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+}
+
+/* Advanced UI Enhancements */
+.password-strength-visual {
+  position: relative;
+  height: 8px;
+  background: #e5e9f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.strength-meter-fill {
+  height: 100%;
+  transition: width 0.5s ease, background-color 0.5s ease;
+  border-radius: 4px;
+}
+
+/* Password analysis section */
+.password-analysis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.analysis-item {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  border-left: 3px solid var(--primary-color);
+}
+
+.analysis-item:hover {
+  transform: translateY(-5px);
+}
+
+.analysis-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.analysis-item p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Password history tracker */
+.password-history {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.history-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.history-title h2 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+}
+
+.history-clear {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.history-clear:hover {
+  background-color: rgba(191, 97, 106, 0.1);
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.history-item:hover {
+  background-color: rgba(94, 129, 172, 0.05);
+}
+
+.history-score {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.score-0 { background-color: var(--danger-color); }
+.score-1 { background-color: #d08770; }
+.score-2 { background-color: var(--warning-color); }
+.score-3 { background-color: var(--success-color); }
+.score-4 { background-color: var(--primary-color); }
+
+/* Interactive password generator */
+.password-generator {
+  margin-top: 2.5rem;
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  animation: fadeIn 0.7s ease-out;
+  border-top: 4px solid var(--secondary-color);
+}
+
+.generator-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-color);
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  background: var(--primary-dark);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.generated-password {
+  position: relative;
+  background-color: rgba(94, 129, 172, 0.1);
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  letter-spacing: 1px;
+  border: 1px dashed var(--primary-color);
+}
+
+.copy-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: rgba(94, 129, 172, 0.1);
+}
+
+/* Password strength insights */
+.strength-insights {
+  margin-top: 1.5rem;
+}
+
+.insight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.insight-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.insight-icon.good {
+  background-color: rgba(163, 190, 140, 0.2);
+  color: var(--success-color);
+}
+
+.insight-icon.warning {
+  background-color: rgba(235, 203, 139, 0.2);
+  color: var(--warning-color);
+}
+
+.insight-icon.bad {
+  background-color: rgba(191, 97, 106, 0.2);
+  color: var(--danger-color);
+}
+
+.insight-text {
+  font-size: 0.9rem;
+}
+
+/* Animated background for header */
+.app-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  position: relative;
+  overflow: hidden;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  animation: backgroundMove 60s linear infinite;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.75rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--card-background) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }

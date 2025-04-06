@@ -1,0 +1,29 @@
+.card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  border-top: 4px solid var(--primary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-animate {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+.card-title {
+  margin-bottom: 1.25rem;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
