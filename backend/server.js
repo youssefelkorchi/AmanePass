@@ -48,7 +48,7 @@ app.use((err, req, res, next) => {
 // Add a route for the root path
 app.get('/', (req, res) => {
   res.json({
-    name: 'Password Guardian API',
+    name: 'AmanePass API (Password Guardian)',
     version: '1.0.0',
     endpoints: [
       {

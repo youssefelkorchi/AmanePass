@@ -1,7 +1,7 @@
 {
-  "name": "password-guardian-backend",
+  "name": "amanepass-backend",
   "version": "1.0.0",
-  "description": "Backend for Password Guardian - A secure, offline password strength checker and breach detector",
+  "description": "Backend for AmanePass (Password Guardian) - A secure, offline password strength checker and breach detector",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

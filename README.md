@@ -1,12 +1,12 @@
-# Password Guardian
+# AmanePass
 
-A secure, offline password strength checker and breach detector that respects your privacy.
+*Password Guardian* - A secure, offline password strength checker and breach detector that respects your privacy.
 
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## 🔐 Overview
 
-Password Guardian is a comprehensive password security solution that helps users create and maintain strong, secure passwords while ensuring complete privacy. Unlike online password checkers that might compromise your security, Password Guardian performs all operations locally on your device, with no data sent to external servers.
+AmanePass (Password Guardian) is a comprehensive password security solution that helps users create and maintain strong, secure passwords while ensuring complete privacy. Unlike online password checkers that might compromise your security, AmanePass performs all operations locally on your device, with no data sent to external servers.
 
 ## ✨ Key Features
 
@@ -21,6 +21,8 @@ Password Guardian is a comprehensive password security solution that helps users
 - **100% Privacy-Focused**: All processing happens locally - no data is sent to external servers
 
 ## 🛠️ Tech Stack
+
+AmanePass uses the following technologies:
 
 - **Frontend**: 
   - React.js with Vite build tool
@@ -133,6 +135,8 @@ Password Guardian is a comprehensive password security solution that helps users
 > **Note**: For more detailed setup instructions, refer to the README files in the backend and frontend directories.
 
 ## 🔒 Security & Privacy
+
+AmanePass prioritizes your security and privacy:
 
 - **No External Requests**: All password checking happens locally
 - **No Storage**: No plaintext passwords are ever stored

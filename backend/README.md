@@ -1,6 +1,6 @@
-# Password Guardian Backend
+# AmanePass Backend
 
-This is the backend server for **Password Guardian**, a secure and privacy-first password strength checker and breach detection service.
+This is the backend server for **AmanePass** (Password Guardian), a secure and privacy-first password strength checker and breach detection service.
 
 ## Features
 
@@ -38,7 +38,7 @@ This is the backend server for **Password Guardian**, a secure and privacy-first
 
 ## 🔐 Breach Detection Feature
 
-Password Guardian includes a powerful local breach detection engine based on the **Have I Been Pwned** (HIBP) password dataset.
+AmanePass includes a powerful local breach detection engine based on the **Have I Been Pwned** (HIBP) password dataset.
 
 ### How It Works
 

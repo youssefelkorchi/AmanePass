@@ -63,7 +63,8 @@ function App() {
     <div className="app">
       <header className="app-header">
         <ThemeToggle /> {/* Add the theme toggle */}
-        <h1>Password Guardian</h1>
+        <h1>AmanePass</h1>
+          <h2>Password Guardian</h2>
         <p className="subtitle">Check your password strength and breach status - 100% offline and private</p>
       </header>
 
@@ -151,7 +152,7 @@ function App() {
         <section className="info-section">
           <Card title="How It Works" accentColor="var(--secondary-color)">
             <p>
-              Password Guardian checks your password's strength using the zxcvbn library and verifies if it has appeared in known data breaches using a local database of leaked passwords.
+              AmanePass checks your password's strength using the zxcvbn library and verifies if it has appeared in known data breaches using a local database of leaked passwords.
             </p>
             <p>
               <strong>100% Private:</strong> All processing happens locally on your device. Your passwords are never stored or sent to external servers.
@@ -161,7 +162,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Password Guardian - A secure, offline password strength checker and breach detector</p>
+        <p>AmanePass (Password Guardian) - A secure, offline password strength checker and breach detector</p>
         <p className="disclaimer">
           Uses the Have I Been Pwned password dataset for breach checking, in compliance with their offline use policy.
         </p>

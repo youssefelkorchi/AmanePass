@@ -1,6 +1,6 @@
-# Password Guardian Frontend
+# AmanePass Frontend
 
-This is the frontend application for **Password Guardian**, a secure and privacy-focused password strength checker and breach detection service.
+This is the frontend application for **AmanePass** (Password Guardian), a secure and privacy-focused password strength checker and breach detection service.
 
 ## 🔐 Features
 
